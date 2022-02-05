@@ -29,4 +29,12 @@ void ct_vec_destruct(ct_vec * const self);
  */
 double ct_vec_pop(ct_vec * const self);
 
+/** Get the capacity of the vector
+ */ 
+inline size_t ct_vec_get_capacity(ct_vec * const self);
+
+/** Get the size of the Vector
+ */ 
+size_t ct_vec_get_size(ct_vec * const self);
+
 #endif

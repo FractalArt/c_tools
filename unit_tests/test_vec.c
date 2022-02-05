@@ -60,10 +60,33 @@ void test_ct_vec_pop() {
 }
 
 
+void test_ct_vec_capacity_size() {
+
+    ct_vec vec =ct_vec_with_capacity(2);
+
+    assert(ct_vec_get_capacity(&vec) == 2);
+    assert(ct_vec_get_size(&vec) == 0);
+
+    ct_vec_push(&vec, 1);
+    ct_vec_push(&vec, 2);
+
+    assert(ct_vec_get_capacity(&vec) == 2);
+    assert(ct_vec_get_size(&vec) == 2);
+
+    ct_vec_push(&vec, 3);
+
+    assert(ct_vec_get_capacity(&vec) == 4);
+    assert(ct_vec_get_size(&vec) == 3);
+
+    ct_vec_destruct(&vec);
+}
+
+
 int main() {
     
     test_ct_vec_with_capacity();
     test_ct_vec_push();
     test_ct_vec_pop();
+    test_ct_vec_capacity_size();
     return 0;
 }

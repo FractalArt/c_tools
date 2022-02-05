@@ -38,3 +38,14 @@ void  ct_vec_push(ct_vec* const self, double x) {
 double ct_vec_pop(ct_vec * const self) {
    return self->data[--self->size]; 
 }
+
+
+size_t ct_vec_get_capacity(ct_vec * const self) {
+    return self->capacity; 
+}
+
+size_t ct_vec_get_size(ct_vec * const self) {
+    return self->size;
+}
+
+
