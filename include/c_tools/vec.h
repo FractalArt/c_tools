@@ -25,4 +25,8 @@ ct_vec ct_vec_with_capacity(size_t capacity);
  */
 void ct_vec_destruct(ct_vec * const self);
 
+/** Pop the last element from the vector.
+ */
+double ct_vec_pop(ct_vec * const self);
+
 #endif

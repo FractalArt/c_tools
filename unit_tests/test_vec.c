@@ -27,7 +27,6 @@ void test_ct_vec_push() {
 
     ct_vec_push(&vec, 5);
     assert(vec.capacity == 4);
-    printf("%ld\n", vec.size);
     assert(vec.size == 3);
 
     assert(vec.data[0] == 3);
@@ -38,9 +37,33 @@ void test_ct_vec_push() {
 }
 
 
+void test_ct_vec_pop() {
+    ct_vec vec = ct_vec_with_capacity(16);
+
+    ct_vec_push(&vec, 2);
+
+    assert(vec.capacity == 16);
+    assert(vec.size == 1);
+
+    ct_vec_push(&vec, 3.0);
+
+    assert(vec.capacity == 16);
+    assert(vec.size == 2);
+
+    double last = ct_vec_pop(&vec);
+
+    assert(last == 3.0);
+    assert(vec.capacity == 16);
+    assert(vec.size == 1);
+
+    ct_vec_destruct(&vec);
+}
+
+
 int main() {
     
     test_ct_vec_with_capacity();
     test_ct_vec_push();
+    test_ct_vec_pop();
     return 0;
 }
