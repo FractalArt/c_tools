@@ -25,12 +25,12 @@ void  ct_vec_push(ct_vec* const self, double x) {
     if (self->size < self->capacity) {
         self->data[self->size++] = x;
     } else {
-        double* new_data = (double *) realloc(self->data, 2 * self->capacity);
+        double* new_data = (double *) realloc(self->data, 2 * self->capacity * sizeof(double));
         assert(new_data != NULL);
         self->data = new_data;
-        self->data[self->size] = x;
-        self->size++;
+        self->data[self->size++] = x;
         self->capacity *= 2;
+
     }
 }
 
